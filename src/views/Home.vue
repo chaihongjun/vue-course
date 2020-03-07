@@ -1,15 +1,17 @@
 <!--
  * @Author: ChaiHongJun
  * @Date: 2020-03-01 17:30:02
- * @LastEditTime: 2020-03-04 11:26:53
+ * @LastEditTime: 2020-03-06 17:47:54
  * @LastEditors: ChaiHongJun
  * @Description: 
  * @FilePath: \vue-course\src\views\Home.vue
  -->
 <template>
   <div class="home">
+    <p>{{fun}}</p>
     <img alt="Vue logo" src="../assets/logo.png" />
     <HelloWorld msg="Welcome to Your Vue.js App" />
+
     <button @click="go('back')">返回上一页</button>
     <button @click="go('forward')">前往"名命视图"</button>
     <button @click="go('replace')">替换到"about"</button>
@@ -23,6 +25,19 @@ export default {
   components: {
     HelloWorld
   },
+  props: {
+    fun: {
+      type: String,
+      default: "chj"
+    }
+  },
+
+  beforeRouteLeave(to, from, next) {
+    const leave = confirm("离开");
+    if (leave) next();
+    else console.log("不离开");
+  },
+
   methods: {
     go(type) {
       //获取当前路由实例
