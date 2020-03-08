@@ -1,7 +1,7 @@
 /*
  * @Author: ChaiHongJun
  * @Date: 2020-03-01 17:40:59
- * @LastEditTime: 2020-03-06 19:51:45
+ * @LastEditTime: 2020-03-07 12:59:33
  * @LastEditors: ChaiHongJun
  * @Description: 实际路由表
  */
@@ -99,6 +99,10 @@ export default [
     meta: {
       title: "登陆"
     }
+  },
+  {
+    path: "/store",
+    component: () => import("../views/Store.vue")
   },
 
   // 404 的页面规则一定要配置在路由表的最后
