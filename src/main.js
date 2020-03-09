@@ -1,7 +1,7 @@
 /*
  * @Author: ChaiHongJun
  * @Date: 2020-03-01 17:30:02
- * @LastEditTime: 2020-03-08 15:49:05
+ * @LastEditTime: 2020-03-08 16:18:46
  * @LastEditors: ChaiHongJun
  * @Description: 入口启动文件
  */
@@ -14,6 +14,7 @@ import Bus from "@/lib/bus";
 
 Vue.config.productionTip = false;
 
+// Vue实例注入bus
 Vue.prototype.$bus = Bus;
 
 new Vue({
