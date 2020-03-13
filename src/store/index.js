@@ -1,7 +1,7 @@
 /*
  * @Author: ChaiHongJun
  * @Date: 2020-03-01 17:30:02
- * @LastEditTime: 2020-03-09 19:51:24
+ * @LastEditTime: 2020-03-12 17:53:35
  * @LastEditors: ChaiHongJun
  * @Description:
  * @FilePath: \vue-course\src\store\index.js

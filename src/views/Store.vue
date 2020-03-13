@@ -1,7 +1,7 @@
 <!--
  * @Author: ChaiHongJun
  * @Date: 2020-03-07 12:58:44
- * @LastEditTime: 2020-03-10 13:58:40
+ * @LastEditTime: 2020-03-13 10:01:55
  * @LastEditors: ChaiHongJun
  * @Description: 
  * @FilePath: \vue-course\src\views\Store.vue
@@ -16,8 +16,14 @@
     <p>父组件：{{inputValue}}</p>
     <p>输入的最后一个字符是：{{inputValueLastLetter}}</p>
     <p>appName:{{appName}} And appWithVersion:{{appWithVersion}}</p>
+    <p>appVersion:{{appVersion}}</p>
     <p>user模块里面的state:{{userName}}</p>
     <p>用户名的第一个字母是：{{getFirstLetter}}</p>
+
+    <p>
+      <button @click="modifiedAppName">修改appName</button>
+    </p>
+
     <C-Input @input="handleInput"></C-Input>
     <C-Show :content="inputValue"></C-Show>
   </div>
@@ -41,6 +47,24 @@ export default {
     // 这里的参数val就是子组件emit过来的参数
     handleInput(val) {
       this.inputValue = val;
+    },
+    modifiedAppName() {
+      // 虽然这样可以修改state ，但是不推荐，因为可能造成数据不可控制
+      // this.$store.state.appName = "chj";
+      // 改变 state 应该是commit mutation
+
+      // SET_APP_NAME 是一个mutation 名称，需要定义在 mutations对象里
+      // 然后是携带的数据 一个参数 可以是字符串
+      // this.$store.commit("SET_APP_NAME", "superuser");
+      // 或 对象 ，如果是对象，则mutation 名称包含在这个对象里
+      this.$store.commit({
+        type: "SET_APP_NAME",
+        appName: "superuser"
+      });
+
+      // 新增的mutation
+
+      this.$store.commit("SET_APP_VERSION");
     }
   },
   computed: {
@@ -55,6 +79,9 @@ export default {
       },
       userName: state => {
         return state.user.userName;
+      },
+      appVersion: state => {
+        return state.appVersion;
       }
     }),
     //getters 里面的数据
