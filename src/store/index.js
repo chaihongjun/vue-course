@@ -1,7 +1,7 @@
 /*
  * @Author: ChaiHongJun
  * @Date: 2020-03-01 17:30:02
- * @LastEditTime: 2020-03-12 17:53:35
+ * @LastEditTime: 2020-03-13 16:21:43
  * @LastEditors: ChaiHongJun
  * @Description:
  * @FilePath: \vue-course\src\store\index.js
@@ -16,6 +16,8 @@ import user from "./modules/user";
 
 import getters from "./getters";
 
+import { saveInLocal } from "./plugin/saveInLocal";
+
 Vue.use(Vuex);
 
 export default new Vuex.Store({
@@ -26,5 +28,6 @@ export default new Vuex.Store({
   actions,
   modules: {
     user
-  }
+  },
+  plugins: [saveInLocal]
 });
